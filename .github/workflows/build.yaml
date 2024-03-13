@@ -1,9 +1,15 @@
 name: Spack buildcache build
 
-on: push
+on:
+  workflow_dispatch:
+  workflow_call:
+  push:
+    branches:
+      - main 
 
 env:
   SPACK_BACKTRACE: please
+  SPACK_REF: ee1fa3e50c1d9dce481572a69fb255f8ca3cee6b
 
 jobs:
   rebuild:
@@ -16,9 +22,18 @@ jobs:
 
     - name: Setup Spack
       uses: spack/setup-spack@5ab3c91bdefffffad9a7e45d1d156146afebb3a7
+      with:
+        ref: ${{env.SPACK_REF}}
+        buildcache: true
+        color: true  
 
     - name: Find compilers
       run: spack -e . compiler find --mixed-toolchain
+
+    - name: Set buildcache
+      run: |
+        spack mirror add --unsigned old-buildcache oci://ghcr.io/sethrj/spack-buildcache
+        spack mirror add --unsigned celer-buildcache oci://ghcr.io/spack/celer-buildcache
 
     - name: Concretize
       run: spack -e . -v concretize
@@ -30,6 +45,6 @@ jobs:
 
     - name: Push packages and update index
       run: |
-        spack mirror set --push --oci-username ${{ github.actor }} --oci-password "${{ secrets.GITHUB_TOKEN }}" github-actions-buildcache
-        spack -e . buildcache push -j $(($(nproc) + 1)) --base-image ubuntu:22.04 --update-index github-actions-buildcache
+        spack mirror set --push --oci-username ${{ github.actor }} --oci-password "${{ secrets.GITHUB_TOKEN }}" celer-buildcache
+        spack -e . buildcache push -j $(($(nproc) + 1)) --base-image ubuntu:22.04 --update-index celer-buildcache
       if: ${{ !cancelled() }}
