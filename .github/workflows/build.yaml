@@ -32,7 +32,6 @@ jobs:
 
     - name: Set buildcache
       run: |
-        spack mirror add --unsigned old-buildcache oci://ghcr.io/sethrj/spack-buildcache
         spack mirror add --unsigned celer-buildcache oci://ghcr.io/celeritas-project/spack-gha-buildcache
 
     - name: Concretize
