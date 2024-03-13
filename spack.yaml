@@ -10,6 +10,12 @@ spack:
       - nlohmann-json
       - root
       - vecgeom
+    - - 'geant4@10.5'
+      - 'geant4@10.6'
+      - 'geant4@10.7'
+      - 'geant4@11.0'
+      - 'geant4@11.1'
+      - 'geant4@11.2'
     - - '%clang@15'
   concretizer:
     unify: false
