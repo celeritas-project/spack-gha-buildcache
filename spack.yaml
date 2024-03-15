@@ -27,7 +27,7 @@ spack:
         all: "{compiler.name}-{compiler.version}/{name}/{version}/{hash:7}"
   packages:
     root:
-      variants: ~aqua ~davix ~examples ~opengl ~x ~tbb
+      variants: ~aqua ~davix ~examples ~opengl ~x ~tbb cxxstd=17
     all:
       require: target=x86_64_v3
       variants: cxxstd=17
