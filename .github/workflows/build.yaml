@@ -5,7 +5,7 @@ on:
   workflow_call:
   push:
     branches:
-      - main 
+      - main
 
 env:
   SPACK_BACKTRACE: please
@@ -25,7 +25,7 @@ jobs:
       with:
         ref: ${{env.SPACK_REF}}
         buildcache: true
-        color: true  
+        color: true
 
     - name: Find compilers
       run: spack -e . compiler find --mixed-toolchain

@@ -22,7 +22,9 @@ spack:
   config:
     install_tree:
       root: /opt/spack
-      padded_length: 128
+      padded_length: 116
+      projections:
+        all: "{compiler.name}-{compiler.version}/{name}/{version}/{hash:7}"
   packages:
     root:
       variants: ~aqua ~davix ~examples ~opengl ~x ~tbb cxxstd=17
