@@ -9,7 +9,7 @@ on:
 
 env:
   SPACK_BACKTRACE: please
-  SPACK_REF: ee1fa3e50c1d9dce481572a69fb255f8ca3cee6b
+  SPACK_REF: 968ad02473b12f6305cc1fe19f2a0d706f171154
 
 jobs:
   rebuild:
