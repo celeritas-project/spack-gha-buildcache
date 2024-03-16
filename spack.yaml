@@ -4,8 +4,10 @@ spack:
   - matrix:
     - - ccache
       - cmake
+      - cuda
       - googletest
       - hepmc3
+      - hip
       - ninja
       - nlohmann-json
       - root
