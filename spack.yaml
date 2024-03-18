@@ -9,6 +9,7 @@ spack:
       - ninja
       - nlohmann-json
       - root
+      - swig
       - vecgeom
       - 'geant4@10.5'
       - 'geant4@10.6'
