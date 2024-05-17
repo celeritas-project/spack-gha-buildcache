@@ -8,22 +8,22 @@ spack:
       - hepmc3
       - ninja
       - nlohmann-json
-      - root
+        #- root
       - swig
       - vecgeom
-      - 'geant4@10.5'
-      - 'geant4@10.6'
-      - 'geant4@10.7'
-      - 'geant4@11.0'
-      - 'geant4@11.1'
-      - 'geant4@11.2'
+        #      - 'geant4@10.5'
+        #      - 'geant4@10.6'
+        #      - 'geant4@10.7'
+        #      - 'geant4@11.0'
+        #      - 'geant4@11.1'
+        #      - 'geant4@11.2'
     - - '%clang@15'
   concretizer:
     unify: false
   config:
     install_tree:
       root: /opt/spack
-      padded_length: 116
+      padded_length: 128
       projections:
         all: "{compiler.name}-{compiler.version}/{name}/{version}/{hash:7}"
   packages:

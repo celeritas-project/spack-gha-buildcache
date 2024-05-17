@@ -13,13 +13,18 @@ env:
 
 jobs:
   rebuild:
-    runs-on: self-hosted
     permissions:
       packages: write
     steps:
     - name: Checkout
       uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
 
+    - name: Install dependencies
+      run: |
+        sudo apt-get -q -y update
+        sudo apt-get -q -y install \
+          ccache cmake ninja-build python3 \
+      
     - name: Setup Spack
       uses: spack/setup-spack@0ce61628ed8a32a5664cf01a0e0b5a4834a3b413 # 2024/03
       with:
@@ -27,11 +32,19 @@ jobs:
         buildcache: true
         color: true
 
+    # TODO: https://github.com/spack/spack/pull/43136
+    - name: Add Spack bug fix
+      run: curl -LfsS https://github.com/spack/spack/pull/43136.patch | git -C spack apply -
+
     - name: Find compilers
       run: spack -e . compiler find --mixed-toolchain
 
+    - name: Find externals
+      run: spack external find ccache cmake ninja python 
+
     - name: Set buildcache
       run: |
+        spack mirror add --unsigned upstream oci://ghcr.io/spack/github-actions-buildcache
         spack mirror add --unsigned celer-buildcache oci://ghcr.io/celeritas-project/spack-gha-buildcache
 
     - name: Concretize
