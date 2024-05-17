@@ -40,9 +40,6 @@ jobs:
     - name: Find compilers
       run: spack -e . compiler find --mixed-toolchain
 
-    - name: Find externals
-      run: spack external find ccache cmake ninja python 
-
     - name: Set buildcache
       run: |
         spack mirror add --unsigned upstream oci://ghcr.io/spack/github-actions-buildcache
