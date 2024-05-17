@@ -9,11 +9,11 @@ on:
 
 env:
   SPACK_BACKTRACE: please
-  SPACK_REF: 968ad02473b12f6305cc1fe19f2a0d706f171154
+  SPACK_REF: 5fe93fee1eec46a0750bd340198bffcb92ff9eec # v0.22.0
 
 jobs:
   rebuild:
-    runs-on: ubuntu-22.04
+    runs-on: self-hosted
     permissions:
       packages: write
     steps:
@@ -21,7 +21,7 @@ jobs:
       uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
 
     - name: Setup Spack
-      uses: spack/setup-spack@5ab3c91bdefffffad9a7e45d1d156146afebb3a7
+      uses: spack/setup-spack@0ce61628ed8a32a5664cf01a0e0b5a4834a3b413 # 2024/03
       with:
         ref: ${{env.SPACK_REF}}
         buildcache: true
@@ -32,7 +32,6 @@ jobs:
 
     - name: Set buildcache
       run: |
-        spack mirror add --unsigned old-buildcache oci://ghcr.io/sethrj/spack-buildcache
         spack mirror add --unsigned celer-buildcache oci://ghcr.io/celeritas-project/spack-gha-buildcache
 
     - name: Concretize
