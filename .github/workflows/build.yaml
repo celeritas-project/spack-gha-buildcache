@@ -13,12 +13,12 @@ on:
         default: false
 
 env:
-  SPACK_BACKTRACE: please
+  SPACK_BACKTRACE: 1
   SPACK_REF: b78c5175823910bc1f57e59a07d0b8c636e3f02d # develop-2024-12-22
 
 jobs:
   rebuild:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     permissions:
       packages: write
     steps:
