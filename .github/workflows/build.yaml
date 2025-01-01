@@ -35,6 +35,7 @@ jobs:
     - name: Patch spack
       run: |
         curl -LfsS https://github.com/spack/spack/pull/48328.patch | git -C spack apply -
+        curl -LfsS https://github.com/spack/spack/pull/48332.patch | git -C spack apply -
 
     - name: Find compilers
       run: spack -e . compiler find --mixed-toolchain
