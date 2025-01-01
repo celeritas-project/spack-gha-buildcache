@@ -2,13 +2,12 @@ spack:
   view: false
   specs:
   - matrix:
-    - - 'geant4-data@10.5'
-      - 'geant4-data@10.6'
-      - 'geant4-data@10.7'
-      - 'geant4-data@11.0'
-      - 'geant4-data@11.1'
-      - 'geant4-data@11.2'
-      - 'geant4-data@11.3'
+    - - ccache
+      - cmake
+      - googletest
+      - ninja
+      - nlohmann-json
+      - root
   concretizer:
     unify: false
   config:
