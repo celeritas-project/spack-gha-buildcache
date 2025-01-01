@@ -42,11 +42,11 @@ jobs:
 
     - name: Concretize (fresh)
       run: spack -e . -v concretize --fresh
-      if: ${{ github.event.inputs.name == 'true' }}
+      if: ${{ github.event.inputs.fresh == 'true' }}
 
     - name: Concretize (reuse)
       run: spack -e . -v concretize
-      if: ${{ github.event.inputs.name == 'false' || github.event_name != 'workflow_dispatch' }}
+      if: ${{ github.event.inputs.fresh == 'false' || github.event_name != 'workflow_dispatch' }}
 
     - name: Install
       run: |
