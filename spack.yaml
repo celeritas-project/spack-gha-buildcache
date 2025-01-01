@@ -7,9 +7,9 @@ spack:
       - googletest
       - ninja
       - nlohmann-json
-      # - hepmc3
-      - root
-      # - vecgeom
+      - hepmc3
+      # - root
+      - vecgeom
       # - 'geant4@10.5'
       # - 'geant4@10.6'
       # - 'geant4@10.7'
