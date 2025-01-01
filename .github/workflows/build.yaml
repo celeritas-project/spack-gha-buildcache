@@ -14,7 +14,7 @@ on:
 
 env:
   SPACK_BACKTRACE: 1
-  SPACK_REF: b78c5175823910bc1f57e59a07d0b8c636e3f02d # develop-2024-12-22
+  SPACK_REF: 866785bd74964142e4b47bf71bee68d7426c84ee # develop@2024-12-31
 
 jobs:
   rebuild:
@@ -22,7 +22,7 @@ jobs:
     permissions:
       packages: write
     steps:
-    - name: Checkout
+    - name: Checkout repo
       uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
 
     - name: Setup Spack
@@ -31,6 +31,10 @@ jobs:
         ref: ${{env.SPACK_REF}}
         buildcache: true
         color: true
+
+    - name: Patch spack
+      run: |
+        curl -LfsS https://github.com/spack/spack/pull/48328.patch | git -C spack apply -
 
     - name: Find compilers
       run: spack -e . compiler find --mixed-toolchain
