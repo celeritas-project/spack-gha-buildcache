@@ -16,7 +16,7 @@ spack:
       # - 'geant4@11.0'
       # - 'geant4@11.1'
       # - 'geant4@11.2'
-      # - 'geant4@11.3'
+      - 'geant4@11.3'
   concretizer:
     unify: false
   config:
