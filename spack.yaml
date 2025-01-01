@@ -8,8 +8,7 @@ spack:
       - hepmc3
       - ninja
       - nlohmann-json
-      - root
-      - swig
+      #- root
       - vecgeom
         # - 'geant4@10.5'
         # - 'geant4@10.6'

@@ -9,7 +9,7 @@ on:
 
 env:
   SPACK_BACKTRACE: please
-  SPACK_REF: 5fe93fee1eec46a0750bd340198bffcb92ff9eec # v0.22.0
+  SPACK_REF: b78c5175823910bc1f57e59a07d0b8c636e3f02d # develop-2024-12-22
 
 jobs:
   rebuild:
@@ -27,15 +27,11 @@ jobs:
           ccache cmake ninja-build python3 \
       
     - name: Setup Spack
-      uses: spack/setup-spack@0ce61628ed8a32a5664cf01a0e0b5a4834a3b413 # 2024/03
+      uses: spack/setup-spack@5792f7c7055c3707819380b5e3831d2be6e64b6c # 2024/12
       with:
         ref: ${{env.SPACK_REF}}
         buildcache: true
         color: true
-
-    # TODO: https://github.com/spack/spack/pull/43136
-    - name: Add Spack bug fix
-      run: curl -LfsS https://github.com/spack/spack/pull/43136.patch | git -C spack apply -
 
     - name: Find compilers
       run: spack -e . compiler find --mixed-toolchain
