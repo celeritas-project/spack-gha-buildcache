@@ -27,10 +27,10 @@ spack:
       projections:
         all: "{compiler.name}-{compiler.version}/{name}/{version}/{hash:7}"
   packages:
-    variants: cxxstd=20
     root:
       variants: ~aqua ~davix ~examples ~opengl ~x ~tbb cxxstd=20
     all:
+      variants: cxxstd=20
       require:
       - '%clang@18'
       - any_of: [+ipo, '@:']
