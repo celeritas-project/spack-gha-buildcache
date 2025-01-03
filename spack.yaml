@@ -4,19 +4,19 @@ spack:
   - matrix:
     - - ccache
       - cmake
-      - googletest
+#      - googletest
       - ninja
-      - nlohmann-json
-      - hepmc3
+#      - nlohmann-json
+#      - hepmc3
       - root
-      - vecgeom
-      - 'geant4@10.5'
+      - vecgeom+gdml
+#      - 'geant4@10.5'
       - 'geant4@10.6'
-      - 'geant4@10.7'
-      - 'geant4@11.0'
-      - 'geant4@11.1'
-      - 'geant4@11.2'
-      - 'geant4@11.3'
+#      - 'geant4@10.7'
+#      - 'geant4@11.0'
+#      - 'geant4@11.1'
+#      - 'geant4@11.2'
+#      - 'geant4@11.3'
   concretizer:
     unify: false
   config:
@@ -27,12 +27,12 @@ spack:
         all: "{compiler.name}-{compiler.version}/{name}/{version}/{hash:7}"
   packages:
     root:
-      variants: ~aqua ~davix ~examples ~opengl ~x ~tbb cxxstd=20
+      variants: ~aqua ~davix ~examples ~opengl ~x ~tbb
     all:
-      variants: cxxstd=20
       require:
       - '%clang@18'
       - any_of: [+ipo, '@:']
       - any_of: [build_system=cmake, '@:']
       - any_of: [build_type=Release, '@:']
       - any_of: [generator=ninja, '@:']
+      - any_of: [cxxstd=20, '@:']
