@@ -32,6 +32,7 @@ spack:
       variants: cxxstd=20
       require:
       - '%clang@18'
+      - 'target=x86_64_v3'
       - any_of: [+ipo, '@:']
       - any_of: [build_system=cmake, '@:']
       - any_of: [build_type=Release, '@:']
