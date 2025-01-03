@@ -8,8 +8,9 @@ spack:
       - ninja
 #      - nlohmann-json
 #      - hepmc3
-      - root
-      - vecgeom+gdml
+#      - root
+      - vecgeom+gdml cxxstd=17 # needed for geant4 compatibility
+      - vecgeom+gdml cxxstd=20
 #      - 'geant4@10.5'
       - 'geant4@10.6'
 #      - 'geant4@10.7'
@@ -26,8 +27,9 @@ spack:
       projections:
         all: "{compiler.name}-{compiler.version}/{name}/{version}/{hash:7}"
   packages:
+    variants: cxxstd=20
     root:
-      variants: ~aqua ~davix ~examples ~opengl ~x ~tbb
+      variants: ~aqua ~davix ~examples ~opengl ~x ~tbb cxxstd=20
     all:
       require:
       - '%clang@18'
@@ -35,4 +37,3 @@ spack:
       - any_of: [build_system=cmake, '@:']
       - any_of: [build_type=Release, '@:']
       - any_of: [generator=ninja, '@:']
-      - any_of: [cxxstd=20, '@:']
