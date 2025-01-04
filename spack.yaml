@@ -9,15 +9,15 @@ spack:
 #      - nlohmann-json
 #      - hepmc3
 #      - root
-      - vecgeom+gdml cxxstd=17 # needed for geant4 compatibility
-      - vecgeom+gdml cxxstd=20
-      - 'geant4@10.5' cxxstd=17
-      - 'geant4@10.6' cxxstd=17
-#      - 'geant4@10.7' cxxstd=20
-#      - 'geant4@11.0' cxxstd=20
-#      - 'geant4@11.1' cxxstd=20
-#      - 'geant4@11.2' cxxstd=20
-#      - 'geant4@11.3' cxxstd=20
+      - 'vecgeom+gdml cxxstd=17' # needed for geant4 compatibility
+      - 'vecgeom+gdml cxxstd=20'
+      - 'geant4@10.5 cxxstd=17'
+      - 'geant4@10.6 cxxstd=17'
+#      - 'geant4@10.7 cxxstd=20'
+#      - 'geant4@11.0 cxxstd=20'
+#      - 'geant4@11.1 cxxstd=20'
+#      - 'geant4@11.2 cxxstd=20'
+#      - 'geant4@11.3 cxxstd=20'
   concretizer:
     unify: false
   config:
