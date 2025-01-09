@@ -14,7 +14,7 @@ on:
 
 env:
   SPACK_BACKTRACE: 1
-  SPACK_REF: 866785bd74964142e4b47bf71bee68d7426c84ee # develop@2024-12-31
+  SPACK_REF: 1c9b042d3a9809073e33cc8da3b6ec96d8e52082 # develop@2025-01-08
 
 jobs:
   rebuild:
@@ -31,12 +31,6 @@ jobs:
         ref: ${{env.SPACK_REF}}
         buildcache: true
         color: true
-
-    - name: Patch spack
-      run: |
-          curl -LfsS https://patch-diff.githubusercontent.com/spack/spack/pull/48328.diff | patch -p1
-          curl -LfsS https://patch-diff.githubusercontent.com/spack/spack/pull/48332.diff | patch -p1
-          curl -LfsS https://patch-diff.githubusercontent.com/spack/spack/pull/48347.diff | patch -p1
 
     - name: Find compilers
       run: spack -e . compiler find --mixed-toolchain
