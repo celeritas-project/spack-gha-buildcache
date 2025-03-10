@@ -3,6 +3,7 @@ spack:
   specs:
   - matrix:
     - - ccache
+      - cli11
       - cmake
       - googletest cxxstd=20
       - googletest cxxstd=17
