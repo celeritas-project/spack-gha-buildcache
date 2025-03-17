@@ -14,7 +14,7 @@ on:
 
 env:
   SPACK_BACKTRACE: 1
-  SPACK_REF: a91f96292c5d999463818365a3dfdabacdd3a31b # develop@2025-03-06
+  SPACK_REF: 016954fcffd63171afb04de3488bd4a9de17fd5b # develop@2025-03-17
 
 jobs:
   rebuild:
@@ -31,13 +31,6 @@ jobs:
         ref: ${{env.SPACK_REF}}
         buildcache: true
         color: true
-
-    - name: Patch spack # To be deleted; see associated github pulls
-      working-directory: spack
-      run: |
-        for id in 49397 49511; do
-          curl -LfsS "https://github.com/spack/spack/pull/${id}.diff" | patch -p1
-        done
 
     - name: Find compilers
       run: spack -e . compiler find --mixed-toolchain
