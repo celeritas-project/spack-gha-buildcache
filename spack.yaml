@@ -26,6 +26,7 @@ spack:
   concretizer:
     unify: false
   config:
+    deprecated: True
     install_tree:
       root: /opt/spack
       projections:
