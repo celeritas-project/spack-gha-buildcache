@@ -14,7 +14,7 @@ on:
 
 env:
   SPACK_BACKTRACE: 1
-  SPACK_REF: 016954fcffd63171afb04de3488bd4a9de17fd5b # develop@2025-03-17
+  SPACK_REF: 38309ced3344d06168c25482083fc733bb654a63 # develop@2025-03-17
 
 jobs:
   rebuild:
