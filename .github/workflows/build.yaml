@@ -32,6 +32,13 @@ jobs:
         buildcache: true
         color: true
 
+    - name: Patch spack # To be deleted; see associated github pulls
+      working-directory: spack
+      run: |
+        for id in 50039; do
+          curl -LfsS "https://github.com/spack/spack/pull/${id}.diff" | patch >
+        done
+
     - name: Find compilers
       run: spack -e . compiler find --mixed-toolchain
 

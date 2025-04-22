@@ -5,7 +5,7 @@ spack:
     - - ccache
       - cli11 +pic
       - cmake
-      - covfie
+      - "covfie@0.13:"
       - googletest cxxstd=20
       - googletest cxxstd=17
       - ninja
