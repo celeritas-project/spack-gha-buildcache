@@ -14,7 +14,6 @@ on:
 
 env:
   SPACK_BACKTRACE: 1
-  SPACK_REF: 38309ced3344d06168c25482083fc733bb654a63 # develop@2025-03-17
 
 jobs:
   rebuild:
@@ -26,18 +25,12 @@ jobs:
       uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
 
     - name: Setup Spack
-      uses: spack/setup-spack@5792f7c7055c3707819380b5e3831d2be6e64b6c # 2024/12
+      uses: sethrj/setup-spack@200141be54665bd75af4dbb131d08d24ea606a9c
       with:
-        ref: ${{env.SPACK_REF}}
+        repository: celeritas-project/spack
+        ref: 84476f6f35ee367a3c8c4247edcde66441cee5e6 # ci @ 12 May 2025
         buildcache: true
         color: true
-
-    - name: Patch spack # To be deleted; see associated github pulls
-      working-directory: spack
-      run: |
-        for id in 50039; do
-          curl -LfsS "https://github.com/spack/spack/pull/${id}.diff" | patch >
-        done
 
     - name: Find compilers
       run: spack -e . compiler find --mixed-toolchain

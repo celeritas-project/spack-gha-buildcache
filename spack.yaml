@@ -5,7 +5,7 @@ spack:
     - - ccache
       - cli11 +pic
       - cmake
-      - "covfie@0.13:"
+      - "covfie@0.14:"
       - googletest cxxstd=20
       - googletest cxxstd=17
       - ninja
@@ -23,7 +23,7 @@ spack:
       - 'geant4@11.1 cxxstd=20'
       - 'geant4@11.2 cxxstd=20'
       - 'geant4@11.3 cxxstd=20'
-      - g4vg
+      - 'g4vg@1.0.4:'
   concretizer:
     unify: false
   config:
