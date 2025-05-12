@@ -29,14 +29,15 @@ spack:
   config:
     deprecated: True
     install_tree:
+      # FIXME: use long padded length on next rebuild
       root: /opt/spack
       projections:
-        all: "{compiler.name}-{compiler.version}/{name}/{version}/{hash:7}"
+        all: "{name}/{version}/{hash:7}"
   packages:
     all:
       variants: cxxstd=20
       require:
-      - '%clang@18'
+      - "%clang@18" # FIXME: use target=x86_64_v3 on next rebuild
       - any_of: [+ipo, '@:']
       - any_of: [build_system=cmake, '@:']
       - any_of: [build_type=Release, '@:']
