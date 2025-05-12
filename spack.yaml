@@ -3,7 +3,7 @@ spack:
   specs:
   - matrix:
     - - ccache
-      - cli11 +pic
+      - cli11 ~ipo +pic
       - cmake
       - "covfie@0.14:"
       - googletest cxxstd=20
