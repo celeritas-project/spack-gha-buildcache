@@ -28,7 +28,7 @@ jobs:
       uses: sethrj/setup-spack@200141be54665bd75af4dbb131d08d24ea606a9c
       with:
         repository: celeritas-project/spack
-        ref: 84476f6f35ee367a3c8c4247edcde66441cee5e6 # ci @ 12 May 2025
+        ref: a7adbadf62f3bf8557d26b56bd4c7eaa7516ed5b # ci @ 7 June 2025
         buildcache: true
         color: true
 

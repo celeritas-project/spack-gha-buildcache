@@ -12,10 +12,10 @@ spack:
       - nlohmann-json
       - hepmc3
       - root ~aqua ~davix ~examples ~opengl ~x ~tbb cxxstd=20
-      - 'vecgeom@1+gdml cxxstd=17' # needed for geant4 compatibility
-      - 'vecgeom@1+gdml cxxstd=20'
-      - 'vecgeom@2.0.0-surfacedev.2+surface+gdml cxxstd=20'
-      - 'vecgeom@2.0.0-surfacedev.2~surface+gdml cxxstd=20'
+      - 'vecgeom@1.2.11+gdml cxxstd=17' # needed for geant4 compatibility
+      - 'vecgeom@1.2.11+gdml cxxstd=20'
+      - 'vecgeom@2.0.0-rc.4+surface+gdml cxxstd=20'
+      - 'vecgeom@2.0.0-rc.4~surface+gdml cxxstd=20'
       - 'geant4@10.5 cxxstd=17'
       - 'geant4@10.6 cxxstd=17'
       - 'geant4@10.7 cxxstd=20'
