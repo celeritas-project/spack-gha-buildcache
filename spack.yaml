@@ -5,6 +5,7 @@ spack:
     - - ccache
       - cli11 ~ipo +pic
       - cmake
+      - 'dd4hep +ddg4 +ddcad +hepmc3 +xercesc cxxstd=20'
       - "covfie@0.14:"
       - googletest cxxstd=20
       - googletest cxxstd=17
